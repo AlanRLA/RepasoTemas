@@ -14,15 +14,17 @@
 <body>
 
     <!-- ========== NAVBAR ========== -->
-    <nav class="navbar navbar-light" style="background-color: #e3f2fd;">
+    <nav class="navbar navbar-expand-lg navbar-light"  style="background-color: #8bb879;">
         <div class="container-fluid">
-            <a class="navbar-brand" href="/">Principal</a>
+          <a class="navbar-brand" href="/">Principal</a>
 
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <li classSS="nav-item">
-                    <a class="nav-link" href="">Registro de libro</a>
-                </li>
-            </div>
+          <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+              <li class="nav-item">
+                <a class="nav-link" href="Registro">Registro de libro</a>
+              </li>
+            </ul>
+          </div>
         </div>
     </nav>
     <!-- ========== CONTENIDO ========== -->
