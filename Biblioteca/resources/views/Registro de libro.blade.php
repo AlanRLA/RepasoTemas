@@ -8,7 +8,8 @@
         <div class="card text-dark bg-light mb-3">
             <div class="card-header">Formulario de registro</div>
              <div class="card-body">
-                <form action="">
+                <form action="GuardarLibro" method="POST">
+                 @csrf
                     <div>
                         <label>ISBN</label>
                         <input class="form-control" type="text" placeholder="Ingresa ISBN">
@@ -35,7 +36,7 @@
                     </div> 
                     
                     <div class="text-center">
-                       <button type="button" class="btn btn-success">Guardar</button> 
+                       <button type="submit" class="btn btn-success">Guardar</button> 
                     </div>
                     
                 </form>               

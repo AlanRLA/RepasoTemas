@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Controller_Views;
 
 /*
 |--------------------------------------------------------------------------
@@ -13,10 +14,10 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('Principal');
-});
+Route::get('/', [Controller_Views::class, 'showPrincipal']);
 
-Route::view('Principal','Principal');
+Route::get('Principal',[Controller_Views::class, 'showPrincipal'])->name('main');
 
-Route::view('Registro','Registro de libro');
+Route::get('Registro',[Controller_Views::class, 'showRegistro'])->name('form');
+
+Route::post('GuardarLibro',[Controller_Views::class, 'ProcesarLibro'])->name('save');
