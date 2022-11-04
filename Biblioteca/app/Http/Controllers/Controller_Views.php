@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Http\Requests\validation_form;
 
 class Controller_Views extends Controller
 {
@@ -14,7 +15,7 @@ class Controller_Views extends Controller
         return view('Registro de libro');
     }
 
-    public function ProcesarLibro(Request $req){
+    public function ProcesarLibro(validation_form $req){
         return 'Se esta procesanding';
     }
 
