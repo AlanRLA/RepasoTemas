@@ -32,7 +32,7 @@
 
     <!-- ========== Pie de pagina ========== -->
     <div class="alert alert-warning alert-dismissible fade show" role="alert">
-        <strong>By AlanRLA</strong> Esta página tiene derechos de autor.
+        <strong>Biblioteca Pública Membrillo ©</strong>  03-11-2022
     </div>
 
     <!-- JavaScript Bundle with Popper -->
