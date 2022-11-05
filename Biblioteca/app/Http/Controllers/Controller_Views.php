@@ -20,9 +20,7 @@ class Controller_Views extends Controller
 
         $titulo = $req->txtTitulo;
 
-        
-
-        return Redirect('Registro')->with('Confirmación',[$titulo]);
+        return Redirect('Registro')->with('Confirmación','correcto')->with('titulo',$titulo);
     }
 
 }

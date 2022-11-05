@@ -16,10 +16,12 @@
     <!-- ========== NAVBAR ========== -->
     <nav class="navbar navbar-expand-lg navbar-light"  style="background-color: #8bb879;">
         <div class="container-fluid">
-          <a class="navbar-brand" href={{route('main')}}>Principal</a>
 
+         <a class="navbar-brand" href={{route('main')}}>Principal</a>
+
+      
           <div class="collapse navbar-collapse" id="navbarNav">
-            <ul class="navbar-nav">
+            <ul class="navbar-nav nav-tabs">
               <li class="nav-item">
                 <a class="nav-link" href={{route('form')}}>Registro de libro</a>
               </li>

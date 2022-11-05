@@ -2,14 +2,15 @@
 
 @section('contenido')
 
-    @if (session()->has('Confirmación','titulo'))
-       {!!"<script> 
+    @if (session()->has('Confirmación'))
+    <?php $titulo = session()->get('titulo')?>
+       <script> 
        Swal.fire(
         'Todo correcto!',
-        'Libro guardado',
+        'Libro "<?php echo($titulo)?>" guardado',
         'success'
          )
-         </script>"!!}
+         </script>
     @endif
 
     <div class="container mt-4 col-md-4">
@@ -32,32 +33,32 @@
                 <form action="GuardarLibro" method="POST">
                  @csrf
                     <div>
-                        <label>ISBN</label>
+                        <label>ISBN*</label>
                         <input class="form-control" type="text" name="nmISBN" placeholder="Ingresa ISBN" value="{{old('nmISBN')}}">
                         <p class="text-danger">{{$errors->first('nmISBN')}}</p>         
                     </div>
                     <div class="mt-2">
-                        <label>Título</label>
+                        <label>Título*</label>
                         <input class="form-control" type="text" name="txtTitulo" placeholder="Ingresa título" value="{{old('txtTitulo')}}">
                         <p class="text-danger">{{$errors->first('txtTitulo')}}</p>
                     </div>
                     <div class="mt-2">
-                        <label>Autor</label>
+                        <label>Autor*</label>
                         <input class="form-control" type="text" name="txtAutor" placeholder="Ingresa autor" value="{{old('txtAutor')}}">
                         <p class="text-danger">{{$errors->first('txtAutor')}}</p>
                     </div>  
                     <div class="mt-2">
-                        <label>Páginas</label>
+                        <label>Páginas*</label>
                         <input class="form-control" type="text" name="nmPaginas" placeholder="Ingresa cantidad de páginas" value="{{old('nmPaginas')}}">
                         <p class="text-danger">{{$errors->first('nmPaginas')}}</p>
                     </div>     
                     <div class="mt-2">
-                        <label>Editorial</label>
+                        <label>Editorial*</label>
                         <input class="form-control" type="text" name="txtEditorial" placeholder="Ingresa editorial" value="{{old('txtEditorial')}}">
                         <p class="text-danger">{{$errors->first('txtEditorial')}}</p>
                     </div> 
                     <div class="mt-2 mb-2">
-                        <label>Email Editorial</label>
+                        <label>Email Editorial*</label>
                         <input class="form-control" type="text" name="emEditorial" placeholder="Ingresa email de la editorial" value="{{old('emEditorial')}}">
                         <p class="text-danger">{{$errors->first('emEditorial')}}</p>
                     </div> 
