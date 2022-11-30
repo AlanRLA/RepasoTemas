@@ -38,6 +38,10 @@ Route::get('autor/{id}/show', [controllerDB::class, 'show'])->name('autor.show')
 //Destroy AUTOR
 Route::delete('autor/{id}',[controllerDB::class, 'destroy'])->name('autor.destroy');
 
+//Create LIBRO
+Route::get('regisLib/create',[controllerDB::class, 'createLibro'])->name('regisLib.create');
+
+
 
 Route::get('/', [Controller_Views::class, 'showPrincipal']);
 

@@ -109,4 +109,9 @@ class controllerDB extends Controller
         return redirect('regisAut')->with('Eliminado','dest');
 
     }
+    public function createLibro()
+    {
+        return view('Registro de libro');
+    }
+
 }

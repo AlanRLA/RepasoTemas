@@ -23,7 +23,7 @@
           <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav nav-tabs">
               <li class="nav-item">
-                <a class="nav-link" href={{route('form')}}>Registro de libro</a>
+                <a class="nav-link" href={{route('regisLib.create')}}>Registro de libro</a>
               </li>
               <li class="nav-item">
                 <a class="nav-link" href={{route('regisAut.create')}}>Registro de autor</a>
