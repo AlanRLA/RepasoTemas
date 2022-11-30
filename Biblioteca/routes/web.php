@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Controller_Views;
+use App\Http\Controllers\controllerDB;
 
 /*
 |--------------------------------------------------------------------------
@@ -14,6 +15,13 @@ use App\Http\Controllers\Controller_Views;
 |
 */
 
+// RUOTES CONTROLLER DB
+
+//Create
+Route::get('regisAut/create',[controllerDB::class, 'create'])->name('regisAut.create');
+
+
+
 Route::get('/', [Controller_Views::class, 'showPrincipal']);
 
 Route::get('Principal',[Controller_Views::class, 'showPrincipal'])->name('main');
@@ -21,3 +29,8 @@ Route::get('Principal',[Controller_Views::class, 'showPrincipal'])->name('main')
 Route::get('Registro',[Controller_Views::class, 'showRegistro'])->name('form');
 
 Route::post('GuardarLibro',[Controller_Views::class, 'ProcesarLibro'])->name('save');
+
+//Autor
+Route::get('RegistroAutor',[Controller_Views::class, 'showRegistroAutor'])->name('formAutor');
+
+Route::post('GuardarAutor',[Controller_Views::class, 'ProcesarAutor'])->name('saveAutor');

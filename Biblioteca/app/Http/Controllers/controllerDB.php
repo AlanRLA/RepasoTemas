@@ -23,7 +23,7 @@ class controllerDB extends Controller
      */
     public function create()
     {
-        //
+        return view('Registro de autores');
     }
 
     /**

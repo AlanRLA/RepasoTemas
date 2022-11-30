@@ -25,6 +25,9 @@
               <li class="nav-item">
                 <a class="nav-link" href={{route('form')}}>Registro de libro</a>
               </li>
+              <li class="nav-item">
+                <a class="nav-link" href={{route('regisAut.create')}}>Registro de autor</a>
+              </li>
             </ul>
           </div>
         </div>
