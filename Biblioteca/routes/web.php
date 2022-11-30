@@ -20,6 +20,11 @@ use App\Http\Controllers\controllerDB;
 //Create
 Route::get('regisAut/create',[controllerDB::class, 'create'])->name('regisAut.create');
 
+//Store
+Route::post('regisAut',[controllerDB::class, 'store'])->name('regisAut.store');
+
+//Consul
+Route::get('regisAut',[controllerDB::class, 'index'])->name('regisAut.index');
 
 
 Route::get('/', [Controller_Views::class, 'showPrincipal']);

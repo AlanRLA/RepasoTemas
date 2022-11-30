@@ -3,6 +3,10 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Http\Requests\validation_formAutores;
+use DB;
+use Carbon\Carbon;
+use Illuminate\Support\Facades\DB as FacadesDB;
 
 class controllerDB extends Controller
 {
@@ -13,7 +17,8 @@ class controllerDB extends Controller
      */
     public function index()
     {
-        //
+        $consultaAut = DB::table('tb_autores')->get();
+        return view('ConsultaAutores',compact('consultaAut'));
     }
 
     /**
@@ -32,9 +37,17 @@ class controllerDB extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(validation_formAutores $request)
     {
-        //
+        DB::table('tb_autores')->insert([
+            "nombre" => $request->input('txtName'),
+            "fecha_n" => $request->input('txtDate'),
+            "c_libros" => $request->input('nmBooks'),
+            "created_at" => Carbon::now(),
+            "updated_at" => Carbon::now()
+        ]);
+    
+        return redirect('regisAut/create')->with('confirmación','success');
     }
 
     /**

@@ -28,6 +28,9 @@
               <li class="nav-item">
                 <a class="nav-link" href={{route('regisAut.create')}}>Registro de autor</a>
               </li>
+              <li class="nav-item">
+                <a class="nav-link" href={{route('regisAut.index')}}>ConsultaAutores</a>
+              </li>
             </ul>
           </div>
         </div>
