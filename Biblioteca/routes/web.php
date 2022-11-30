@@ -17,14 +17,26 @@ use App\Http\Controllers\controllerDB;
 
 // RUOTES CONTROLLER DB
 
-//Create
+//Create AUTOR
 Route::get('regisAut/create',[controllerDB::class, 'create'])->name('regisAut.create');
 
-//Store
+//Store AUTOR
 Route::post('regisAut',[controllerDB::class, 'store'])->name('regisAut.store');
 
-//Consul
+//Consul AUTOR
 Route::get('regisAut',[controllerDB::class, 'index'])->name('regisAut.index');
+
+//Edit AUTOR
+Route::get('autor/{id}/edit',[controllerDB::class, 'edit'])->name('autor.edit');
+
+//Update AUTOR
+Route::put('autor/{id}', [controllerDB::class, 'update'])->name('autor.update');
+
+//Delete AUTOR
+Route::get('autor/{id}/show', [controllerDB::class, 'show'])->name('autor.show');
+
+//Destroy AUTOR
+Route::delete('autor/{id}',[controllerDB::class, 'destroy'])->name('autor.destroy');
 
 
 Route::get('/', [Controller_Views::class, 'showPrincipal']);

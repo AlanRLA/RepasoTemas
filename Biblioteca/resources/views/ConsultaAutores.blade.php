@@ -2,15 +2,30 @@
 
 @section('contenido')
     
+
+@if (session()->has('Actualizar'))
+
+{!!"<script> Swal.fire(
+    'Todo correcto!',
+    'Autor actualizado!',
+    'success'
+  )</script>"!!}
+
+@endif
+
+@if (session()->has('Eliminado'))
+
+{!!"<script> Swal.fire(
+    'Todo correcto!',
+    'Autor eliminado!',
+    'warning'
+  )</script>"!!}
+
+@endif
+
     <div class="container mt-4 col-md-5">
         <h4 class="text-center">Consulta de autores</h4>
         <br>
-
-        <div class="container col-md-6 mb-3 d-grid gap-3">
-            <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#modalAdd">
-                Registrar Autor
-            </button>
-        </div>
 
         @foreach ($consultaAut as $consul)
             
@@ -19,10 +34,6 @@
               <STRong>Autor</STRong> {{$consul->nombre}}
             </div>
             <div class="card-body">
-      
-              <p class="card-text" style="font-family: 'Times New Roman', Times, serif; font-size:20px;">
-              </p>
-              
               <div class="container px-4">
                 <div class="row gx-5">
                   <div class="col">
@@ -37,17 +48,11 @@
             </div>
             <div class="card-footer text-muted">
               Fecha registro: {{$consul->created_at}}
-              <a class="btn btn-info" data-bs-toggle="modal" data-bs-target="#modalUpdt">
-                Editar autor
-            </a>
-            
-  
-            <a class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#modalDest">
-                Eliminar autor
-            </a>
+              <a href="{{route('autor.edit',$consul->idAutor)}}" class="btn btn-info">Editar </a>
+              <a href="{{route('autor.show',$consul->idAutor)}}" class="btn btn-danger">Eliminar </a>
+
             </div>
-        </div>
+        </div><br>
         @endforeach
     </div>
-    <br>
 @endsection

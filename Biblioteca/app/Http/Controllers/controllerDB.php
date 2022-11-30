@@ -47,7 +47,7 @@ class controllerDB extends Controller
             "updated_at" => Carbon::now()
         ]);
     
-        return redirect('regisAut/create')->with('confirmación','success');
+        return redirect('regisAut/create')->with('Confirmación','success');
     }
 
     /**
@@ -57,8 +57,10 @@ class controllerDB extends Controller
      * @return \Illuminate\Http\Response
      */
     public function show($id)
-    {
-        //
+    {   
+        $consultaId = DB::table('tb_autores')->where('idAutor',$id)->first();
+
+        return view('EliminarAutor', compact('consultaId'));
     }
 
     /**
@@ -69,7 +71,9 @@ class controllerDB extends Controller
      */
     public function edit($id)
     {
-        //
+        $consultaId = DB::table('tb_autores')->where('idAutor',$id)->first();
+
+        return view('EditarAutor', compact('consultaId'));
     }
 
     /**
@@ -81,7 +85,15 @@ class controllerDB extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        DB::table('tb_autores')->where('idAutor',$id)->update([
+            "nombre" => $request->input('txtName'),
+            "fecha_n" => $request->input('txtDate'),
+            "c_libros" => $request->input('nmBooks'),
+            "updated_at" => Carbon::now()
+        ]);
+
+        return redirect('regisAut')->with('Actualizar','updt');
+
     }
 
     /**
@@ -92,6 +104,9 @@ class controllerDB extends Controller
      */
     public function destroy($id)
     {
-        //
+        DB::table('tb_autores')->where('idAutor',$id)->delete();
+
+        return redirect('regisAut')->with('Eliminado','dest');
+
     }
 }
