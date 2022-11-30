@@ -30,11 +30,11 @@
             <div class="card-header">Formulario de registro</div>
              <div class="card-body">
 
-                <form action="GuardarLibro" method="POST">
+                <form action="{{route('regisLib.store')}}" method="POST">
                  @csrf
                     <div>
                         <label>ISBN*</label>
-                        <input class="form-control" type="text" name="nmISBN" placeholder="Ingresa ISBN" value="{{old('nmISBN')}}">
+                        <input class="form-control" type="text" name="nmISBN" placeholder="xxxxxxxxxxxxx" value="{{old('nmISBN')}}">
                         <p class="text-danger">{{$errors->first('nmISBN')}}</p>         
                     </div>
                     <div class="mt-2">
@@ -44,12 +44,18 @@
                     </div>
                     <div class="mt-2">
                         <label>Autor*</label>
-                        <input class="form-control" type="text" name="txtAutor" placeholder="Ingresa autor" value="{{old('txtAutor')}}">
-                        <p class="text-danger">{{$errors->first('txtAutor')}}</p>
+                            <select class="form-select-control form-select" name="idAutor">
+                                <option selected disabled>Selecciona un autor</option>
+                                @foreach ($consulAut as $autores)
+                                    <option value="{{$autores->idAutor}}">{{$autores->nombre}}</option>
+                                @endforeach
+
+                            </select>
+                        <p class="text-danger">{{$errors->first('idAutor')}}</p>
                     </div>  
                     <div class="mt-2">
                         <label>Páginas*</label>
-                        <input class="form-control" type="text" name="nmPaginas" placeholder="Ingresa cantidad de páginas" value="{{old('nmPaginas')}}">
+                        <input class="form-control" type="text" name="nmPaginas" placeholder="xxxx" value="{{old('nmPaginas')}}">
                         <p class="text-danger">{{$errors->first('nmPaginas')}}</p>
                     </div>     
                     <div class="mt-2">
@@ -59,7 +65,7 @@
                     </div> 
                     <div class="mt-2 mb-2">
                         <label>Email Editorial*</label>
-                        <input class="form-control" type="text" name="emEditorial" placeholder="Ingresa email de la editorial" value="{{old('emEditorial')}}">
+                        <input class="form-control" type="text" name="emEditorial" placeholder="editorial@email.com" value="{{old('emEditorial')}}">
                         <p class="text-danger">{{$errors->first('emEditorial')}}</p>
                     </div> 
                     

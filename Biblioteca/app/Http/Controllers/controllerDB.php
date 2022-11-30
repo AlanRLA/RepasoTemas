@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Http\Requests\validation_formAutores;
+use App\Http\Requests\validation_form;
 use DB;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\DB as FacadesDB;
@@ -109,9 +110,28 @@ class controllerDB extends Controller
         return redirect('regisAut')->with('Eliminado','dest');
 
     }
+
+    /* L I B R O */
     public function createLibro()
     {
-        return view('Registro de libro');
+        $consulAut = DB::table('tb_autores')->get();
+        return view('Registro de libro',compact('consulAut'));
+    }
+
+    public function storeLibro(validation_form $request)
+    {
+        DB::table('tb_libros')->insert([
+            "isbn" => $request->input('nmISBN'),
+            "titulo" => $request->input('txtTitulo'),
+            "id_Autor" => $request->input('idAutor'),
+            "paginas" => $request->input('nmPaginas'),
+            "editorial" => $request->input('txtEditorial'),
+            "emailEdi" => $request->input('emEditorial'),
+            "created_at" => Carbon::now(),
+            "updated_at" => Carbon::now()
+        ]);
+    
+        return redirect('regisLib/create')->with('Confirmación','success');
     }
 
 }

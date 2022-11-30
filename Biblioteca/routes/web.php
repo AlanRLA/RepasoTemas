@@ -38,8 +38,14 @@ Route::get('autor/{id}/show', [controllerDB::class, 'show'])->name('autor.show')
 //Destroy AUTOR
 Route::delete('autor/{id}',[controllerDB::class, 'destroy'])->name('autor.destroy');
 
+// L I B R O
+
 //Create LIBRO
 Route::get('regisLib/create',[controllerDB::class, 'createLibro'])->name('regisLib.create');
+
+//Store Libro
+Route::post('regisLib',[controllerDB::class, 'storeLibro'])->name('regisLib.store');
+
 
 
 

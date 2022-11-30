@@ -26,7 +26,7 @@ class validation_form extends FormRequest
         return [
             'nmISBN'=>'numeric|required|integer|digits_between:13,50',
             'txtTitulo'=>'required',
-            'txtAutor'=>'required',
+            'idAutor'=>'required',
             'nmPaginas'=>'numeric|required',
             'txtEditorial'=>'required',
             'emEditorial'=>'email|required',
@@ -38,7 +38,7 @@ class validation_form extends FormRequest
         return[
             'nmISBN'=>'ISBN debe tener mínimo 13 dígitos númericos.',
             'txtTitulo'=>'Debe escribir un título.',
-            'txtAutor'=>'Debe escribir un autor.',
+            'idAutor'=>'Debe seleccionar un autor.',
             'nmPaginas'=>'Debe indicar la cantidad númerica de páginas.',
             'txtEditorial'=>'Debe escribir una editorial.',
             'emEditorial'=>'El correo no es válido.',
