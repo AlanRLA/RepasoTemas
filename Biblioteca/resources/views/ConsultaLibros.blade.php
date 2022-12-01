@@ -68,7 +68,7 @@
             <dt>Fecha registro: {{$consul->created_at}}</dt>
              <p class="text-center">
                 <a href="{{route('libro.edit',$consul->idLibro)}}" class="btn btn-info text-center">Editar </a>
-                <a href="" class="btn btn-danger">Eliminar </a>
+                <a href="{{route('libro.show',$consul->idLibro)}}" class="btn btn-danger">Eliminar </a>
              </p>
             </div>
         </div><br>

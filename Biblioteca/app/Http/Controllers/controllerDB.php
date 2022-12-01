@@ -165,4 +165,19 @@ class controllerDB extends Controller
 
         return redirect('libros')->with('Actualizado','updt');
     }
+
+    public function showLibro($id)
+    {   
+        $consultaId = DB::table('tb_libros')->where('idLibro',$id)->first();
+
+        return view('EliminarLibro', compact('consultaId'));
+    }
+
+    public function destroyLibro($id)
+    {
+        DB::table('tb_libros')->where('idLibro',$id)->delete();
+
+        return redirect('libros')->with('Eliminado','dest');
+
+    }
 }
