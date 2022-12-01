@@ -4,8 +4,8 @@
 
 
     <div class="container col-md-6 mb-4 mt-4">
-    <h1 class="text-center">Confirmación de borrado</h1>
-   
+    <h2 class="text-center">Confirmación de borrado</h2>
+    <br>
         <div class="alert alert-warning alert-dimissible fadeshow text-center" role="alert">
             <strong>¿Seguro que desea borrar este autor?</strong> 
             <button type="button" class="btn-close" data-bs-di></button>
@@ -30,7 +30,7 @@
               </div>
             </div>
             <div class="card-footer text-muted">
-              Fecha registro: {{$consultaId->created_at}}
+              <dt>Fecha registro: {{$consultaId->created_at}}</dt> 
             <form action="{{route('autor.destroy', $consultaId->idAutor)}}" method="POST" class="text-center">
              @csrf
             {!!method_field('delete')!!}

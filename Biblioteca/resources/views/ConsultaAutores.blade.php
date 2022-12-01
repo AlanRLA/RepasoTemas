@@ -47,10 +47,12 @@
               </div>
             </div>
             <div class="card-footer text-muted">
-              Fecha registro: {{$consul->created_at}}
-              <a href="{{route('autor.edit',$consul->idAutor)}}" class="btn btn-info">Editar </a>
-              <a href="{{route('autor.show',$consul->idAutor)}}" class="btn btn-danger">Eliminar </a>
-
+              <dt>Fecha registro: {{$consul->created_at}}</dt>
+              <p class="text-center">
+               <a href="{{route('autor.edit',$consul->idAutor)}}" class="btn btn-info">Editar </a>
+               <a href="{{route('autor.show',$consul->idAutor)}}" class="btn btn-danger">Eliminar </a>
+              </p>
+            
             </div>
         </div><br>
         @endforeach
