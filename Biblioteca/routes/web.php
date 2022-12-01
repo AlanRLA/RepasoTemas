@@ -46,6 +46,10 @@ Route::get('regisLib/create',[controllerDB::class, 'createLibro'])->name('regisL
 //Store Libro
 Route::post('regisLib',[controllerDB::class, 'storeLibro'])->name('regisLib.store');
 
+//libros
+Route::get('libros',[controllerDB::class, 'libros'])->name('libros.show');
+
+
 
 
 

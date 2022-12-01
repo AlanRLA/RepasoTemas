@@ -115,6 +115,7 @@ class controllerDB extends Controller
     public function createLibro()
     {
         $consulAut = DB::table('tb_autores')->get();
+
         return view('Registro de libro',compact('consulAut'));
     }
 
@@ -131,7 +132,15 @@ class controllerDB extends Controller
             "updated_at" => Carbon::now()
         ]);
     
-        return redirect('regisLib/create')->with('Confirmación','success');
+        $titulo = $request->txtTitulo;
+
+        return redirect('regisLib/create')->with('Confirmación','success')->with('titulo',$titulo);
+    }
+
+    public function libros()
+    {
+        $consultaLib = DB::table('tb_libros')->get();
+        return view('ConsultaLibros',compact('consultaLib'));
     }
 
 }
