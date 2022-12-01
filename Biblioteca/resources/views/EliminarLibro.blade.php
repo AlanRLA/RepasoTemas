@@ -14,18 +14,18 @@
 
           <div class="card">
               <div class="card-header">
-                <STRong>Libro: </STRong><dfn>{{$consultaId->titulo}}</dfn> 
+                <STRong>Libro: </STRong><dfn>{{$consulNomAut2->titulo}}</dfn> 
               </div>
               <div class="card-body">
                 <div class="container px-4">
                   <div class="row gx-5">
                     <div class="col">
                      <div class="p-3 border bg-light" style="font-family: 'Times New Roman', Times, serif; font-size:18px">
-                       <p class="card-text">ISBN: {{$consultaId->isbn}}</p> 
-                       <p class="card-text">Autor: {{$consultaId->id_Autor}}</p>
-                       <p class="card-text">Paginas: {{$consultaId->paginas}}</p>
-                       <p class="card-text">Editorial: {{$consultaId->editorial}}</p>
-                       <p class="card-text">Email Editorial: {{$consultaId->emailEdi}}</p>
+                       <p class="card-text">ISBN: {{$consulNomAut2->isbn}}</p> 
+                       <p class="card-text">Autor: {{$consulNomAut2->nombre}}</p>
+                       <p class="card-text">Paginas: {{$consulNomAut2->paginas}}</p>
+                       <p class="card-text">Editorial: {{$consulNomAut2->editorial}}</p>
+                       <p class="card-text">Email Editorial: {{$consulNomAut2->emailEdi}}</p>
                      </div>
                   </div>
                   <div class="col">
@@ -38,9 +38,9 @@
                 </div>
               </div>
               <div class="card-footer text-muted">
-              <dt>Fecha registro: {{$consultaId->created_at}}</dt>
+              <dt>Fecha registro: {{$consulNomAut2->created_at}}</dt>
                <p class="text-center">
-                <form action="{{route('libro.destroy',$consultaId->idLibro)}}" class="text-center" method="POST">
+                <form action="{{route('libro.destroy',$consulNomAut2->idLibro)}}" class="text-center" method="POST">
                 @csrf
                 {!!method_field('delete')!!}
                   <button type="submit" class="btn btn-danger text-center">Sí, eliminar</button>

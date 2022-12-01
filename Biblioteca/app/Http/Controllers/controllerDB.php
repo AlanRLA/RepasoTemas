@@ -140,13 +140,30 @@ class controllerDB extends Controller
     public function libros()
     {
         $consultaLib = DB::table('tb_libros')->get();
-        return view('ConsultaLibros',compact('consultaLib'));
+
+        $consulNomAut1 = DB::table('tb_autores')
+        ->select('nombre as Autor')
+        ->join('tb_libros','tb_libros.id_Autor','=','tb_autores.idAutor')
+        ->groupBy('tb_libros.idLibro')
+        ->get();
+
+        $consulNomAut2 = DB::table('tb_autores')
+        ->crossJoin('tb_libros')->select('tb_libros.idLibro', 'tb_Libros.titulo', 'tb_Libros.isbn', 'tb_Libros.paginas', 'tb_autores.nombre', 'tb_Libros.editorial', 'tb_libros.emailEdi','tb_libros.created_at')
+        ->whereIn('tb_autores.idAutor',(function ($query) {
+            $query->from('tb_libros')
+                ->select('id_Autor');
+        })
+        )->where('tb_autores.idAutor','=',DB::raw('tb_libros.id_Autor'))
+        ->get();
+
+        return view('ConsultaLibros',compact('consulNomAut2'));
     }
 
     public function editLibro($id)
     {
         $consultaId = DB::table('tb_libros')->where('idLibro',$id)->first();
         $consulAut = DB::table('tb_autores')->get();
+
 
         return view('EditarLibro', compact('consultaId', 'consulAut'));
     }
@@ -170,7 +187,16 @@ class controllerDB extends Controller
     {   
         $consultaId = DB::table('tb_libros')->where('idLibro',$id)->first();
 
-        return view('EliminarLibro', compact('consultaId'));
+        $consulNomAut2 = DB::table('tb_autores')
+        ->crossJoin('tb_libros')->select('tb_libros.idLibro', 'tb_Libros.titulo', 'tb_Libros.isbn', 'tb_Libros.paginas', 'tb_autores.nombre', 'tb_Libros.editorial', 'tb_libros.emailEdi','tb_libros.created_at')
+        ->whereIn('tb_autores.idAutor',(function ($query) {
+            $query->from('tb_libros')
+                ->select('id_Autor');
+        })
+        )->where('tb_autores.idAutor','=',DB::raw('tb_libros.id_Autor'))
+        ->where('idLibro',$id)->first();
+
+        return view('EliminarLibro', compact('consulNomAut2'));
     }
 
     public function destroyLibro($id)
