@@ -29,7 +29,10 @@
                 <a class="nav-link" href={{route('regisAut.create')}}>Registro de autor</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href={{route('regisAut.index')}}>ConsultaAutores</a>
+                <a class="nav-link" href={{route('regisAut.index')}}>Consulta Autores</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href={{route('libros.show')}}>Consulta Libros</a>
               </li>
             </ul>
           </div>
