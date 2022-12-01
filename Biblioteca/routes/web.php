@@ -43,11 +43,24 @@ Route::delete('autor/{id}',[controllerDB::class, 'destroy'])->name('autor.destro
 //Create LIBRO
 Route::get('regisLib/create',[controllerDB::class, 'createLibro'])->name('regisLib.create');
 
-//Store Libro
+//Store LIBRO
 Route::post('regisLib',[controllerDB::class, 'storeLibro'])->name('regisLib.store');
 
-//libros
+//Consul LIBRO
 Route::get('libros',[controllerDB::class, 'libros'])->name('libros.show');
+
+//Edit LIBRO
+Route::get('libro/{id}/edit',[controllerDB::class, 'editLibro'])->name('libro.edit');
+
+//Update LIBRO
+Route::put('libro/{id}', [controllerDB::class, 'updateLibro'])->name('libro.update');
+
+//Delete LIBRO
+Route::get('libro/{id}/show', [controllerDB::class, 'showLibro'])->name('libro.show');
+
+//Destroy LIBRO
+Route::delete('libro/{id}',[controllerDB::class, 'destroyLibro'])->name('libro.destroy');
+
 
 
 

@@ -23,6 +23,16 @@
 
 @endif
 
+@if (session()->has('Actualizado'))
+
+{!!"<script> Swal.fire(
+    'Todo correcto!',
+    'Libro actualizado!',
+    'success'
+  )</script>"!!}
+
+@endif
+
     <div class="container mt-4 col-md-7">
         <h4 class="text-center">Consulta de libros</h4>
         <br>
@@ -31,14 +41,15 @@
             
         <div class="card">
             <div class="card-header">
-              <STRong>Libro:</STRong><dfn>{{$consul->titulo}}</dfn> 
+              <STRong>Libro: </STRong><dfn>{{$consul->titulo}}</dfn> 
             </div>
             <div class="card-body">
               <div class="container px-4">
                 <div class="row gx-5">
                   <div class="col">
                    <div class="p-3 border bg-light" style="font-family: 'Times New Roman', Times, serif; font-size:18px">
-                     <p class="card-text"><strong> Autor: </strong>{{$consul->id_Autor}}</p>
+                     <p class="card-text">ISBN: {{$consul->isbn}}</p> 
+                     <p class="card-text">Autor: {{$consul->id_Autor}}</p>
                      <p class="card-text">Paginas: {{$consul->paginas}}</p>
                      <p class="card-text">Editorial: {{$consul->editorial}}</p>
                      <p class="card-text">Email Editorial: {{$consul->emailEdi}}</p>
@@ -56,7 +67,7 @@
             <div class="card-footer text-muted">
             <dt>Fecha registro: {{$consul->created_at}}</dt>
              <p class="text-center">
-                <a href="" class="btn btn-info text-center">Editar </a>
+                <a href="{{route('libro.edit',$consul->idLibro)}}" class="btn btn-info text-center">Editar </a>
                 <a href="" class="btn btn-danger">Eliminar </a>
              </p>
             </div>

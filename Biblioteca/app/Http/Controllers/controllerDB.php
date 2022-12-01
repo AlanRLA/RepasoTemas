@@ -84,7 +84,7 @@ class controllerDB extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(validation_formAutores $request, $id)
     {
         DB::table('tb_autores')->where('idAutor',$id)->update([
             "nombre" => $request->input('txtName'),
@@ -143,4 +143,26 @@ class controllerDB extends Controller
         return view('ConsultaLibros',compact('consultaLib'));
     }
 
+    public function editLibro($id)
+    {
+        $consultaId = DB::table('tb_libros')->where('idLibro',$id)->first();
+        $consulAut = DB::table('tb_autores')->get();
+
+        return view('EditarLibro', compact('consultaId', 'consulAut'));
+    }
+
+    public function updateLibro(validation_form $request, $id)
+    {
+        DB::table('tb_libros')->where('idLibro',$id)->update([
+            "isbn" => $request->input('nmISBN'),
+            "titulo" => $request->input('txtTitulo'),
+            "id_Autor" => $request->input('idAutor'),
+            "paginas" => $request->input('nmPaginas'),
+            "editorial" => $request->input('txtEditorial'),
+            "emailEdi" => $request->input('emEditorial'),
+            "updated_at" => Carbon::now()
+        ]);
+
+        return redirect('libros')->with('Actualizado','updt');
+    }
 }
