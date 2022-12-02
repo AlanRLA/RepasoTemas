@@ -15,17 +15,7 @@
 
     <div class="container mt-4 col-md-4">
         <h4 class="text-center">Registro de libro</h4>
-        
-        {{-- IF de mensajes
-        @if ($errors->any())
-            @foreach ($errors->all() as $error)
-                <div class="alert alert-danger" role="alert">
-                    <strong>{{$error}}</strong>
-                    Error
-                </div>  
-            @endforeach                   
-        @endif
-        --}}       
+     
         <div class="card text-dark bg-light mb-3">
             <div class="card-header">Formulario de registro</div>
              <div class="card-body">
@@ -44,12 +34,17 @@
                     </div>
                     <div class="mt-2">
                         <label>Autor*</label>
-                            <select class="form-select-control form-select" name="idAutor">
+                            <select class="form-select-control form-select" name="idAutor" id="slt">
                                 <option selected disabled>Selecciona un autor</option>
-                                @foreach ($consulAut as $autores)
-                                    <option value="{{$autores->idAutor}}">{{$autores->nombre}}</option>
+                               
+                                @foreach ($consulAut as $autores)  
+                                    @if (old('idAutor') == $autores->idAutor)
+                                        <option  value="{{$autores->idAutor}}" selected> {{$autores->nombre}}</option> 
+                                   
+                                    @else
+                                        <option value="{{$autores->idAutor}}"> {{$autores->nombre}}</option>
+                                    @endif           
                                 @endforeach
-
                             </select>
                         <p class="text-danger">{{$errors->first('idAutor')}}</p>
                     </div>  
@@ -79,3 +74,14 @@
         </div>
     </div>
 @endsection
+
+<script>
+    $(function(){
+        $("select").each(function(index, element)){
+            const val = $(this).data('value');
+                if(val !== ''){
+                    $(this).val(val);
+                }
+        };
+    })
+</script>

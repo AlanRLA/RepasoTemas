@@ -25,8 +25,7 @@
 
     <div class="container mt-4 col-md-5">
         <h4 class="text-center">Consulta de autores</h4>
-        <br>
-
+        
         @foreach ($consultaAut as $consul)
             
         <div class="card">

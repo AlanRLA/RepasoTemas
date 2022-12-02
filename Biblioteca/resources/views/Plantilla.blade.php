@@ -14,25 +14,25 @@
 <body>
 
     <!-- ========== NAVBAR ========== -->
-    <nav class="navbar navbar-expand-lg navbar-light"  style="background-color: #8bb879;">
+    <nav class="navbar navbar-expand-lg navbar-light "  style="background-color: #8bb879;">
         <div class="container-fluid">
 
-         <a class="navbar-brand" href={{route('main')}}>Principal</a>
+         <a class="navbar-brand {{request()->routeIs('main')? 'fw-bold':''}}" href={{route('main')}}>Principal</a>
 
       
           <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav nav-tabs">
               <li class="nav-item">
-                <a class="nav-link" href={{route('regisLib.create')}}>Registro de libro</a>
+                <a class="nav-link {{request()->routeIs('regisLib.create')? 'fw-bold':''}}" href={{route('regisLib.create')}}>Registro de libro</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href={{route('regisAut.create')}}>Registro de autor</a>
+                <a class="nav-link {{request()->routeIs('regisAut.create')? 'fw-bold':''}}" href={{route('regisAut.create')}}>Registro de autor</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href={{route('regisAut.index')}}>Consulta Autores</a>
+                <a class="nav-link {{request()->routeIs('regisAut.index')? 'fw-bold':''}}" href={{route('regisAut.index')}}>Consulta Autores</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href={{route('libros.show')}}>Consulta Libros</a>
+                <a class="nav-link {{request()->routeIs('libros.show')? 'fw-bold':''}}" href={{route('libros.show')}}>Consulta Libros</a>
               </li>
             </ul>
           </div>

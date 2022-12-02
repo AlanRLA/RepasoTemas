@@ -154,6 +154,7 @@ class controllerDB extends Controller
                 ->select('id_Autor');
         })
         )->where('tb_autores.idAutor','=',DB::raw('tb_libros.id_Autor'))
+        ->groupBy('tb_libros.idLibro')
         ->get();
 
         return view('ConsultaLibros',compact('consulNomAut2'));
@@ -162,10 +163,20 @@ class controllerDB extends Controller
     public function editLibro($id)
     {
         $consultaId = DB::table('tb_libros')->where('idLibro',$id)->first();
+
         $consulAut = DB::table('tb_autores')->get();
 
+        $consulNomAut2 = DB::table('tb_autores')
+        ->crossJoin('tb_libros')->select('tb_libros.idLibro', 'tb_Libros.titulo', 'tb_Libros.isbn', 'tb_Libros.paginas', 'tb_autores.nombre', 'tb_Libros.editorial', 'tb_libros.emailEdi','tb_libros.created_at')
+        ->whereIn('tb_autores.idAutor',(function ($query) {
+            $query->from('tb_libros')
+                ->select('id_Autor');
+        })
+        )->where('tb_autores.idAutor','=',DB::raw('tb_libros.id_Autor'))
+        ->where('idLibro',$id)->first();
 
-        return view('EditarLibro', compact('consultaId', 'consulAut'));
+
+        return view('EditarLibro', compact('consultaId', 'consulAut','consulNomAut2'));
     }
 
     public function updateLibro(validation_form $request, $id)

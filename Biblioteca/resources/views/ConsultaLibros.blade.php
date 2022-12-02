@@ -35,7 +35,6 @@
 
     <div class="container mt-4 col-md-7">
         <h4 class="text-center">Consulta de libros</h4>
-        <br>
         
         @foreach ($consulNomAut2 as $consul)
             

@@ -25,9 +25,13 @@
                 <div class="mt-2">
                     <label>Autor*</label>
                         <select class="form-select-control form-select" name="idAutor">
-                            <option selected disabled>Selecciona un autor</option>
+                            <option disabled>Selecciona un autor</option>
                             @foreach ($consulAut as $autores)
-                                <option value="{{$autores->idAutor}}">{{$autores->nombre}}</option>
+                                @if ($autores->nombre == $consulNomAut2->nombre)
+                                    <option value="{{$autores->idAutor}}" selected> {{$autores->nombre}}</option> 
+                                @else
+                                     <option value="{{$autores->idAutor}}"> {{$autores->nombre}}</option>
+                                @endif
                             @endforeach
                         </select>
                     <p class="text-danger">{{$errors->first('idAutor')}}</p>
